@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Document Form</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+			<div class="image">
+				<img src="photo.png">
+			</div>
+			<h1 id="titulli">Add Document - Form</h1>
+	
+	<!-- ketu fillon html i pare -->
+	<div id="addDocumentForm" >
+	<div class="container">
+
+ 		<div>
+		<form method="post" action="/" enctype="multipart/form-data" class="formulari clearfix" id="shtoDokument">
+		  <div class="form-row">		    
+		    <div class="forma col-md-3 col-md-offset-3 ">
+		      <input type="text" class="inputet" id="subjectOfDoc" name="subject_document" placeholder="Subject of the document" autofocus="on">		    
+		    </div>
+		    <div class="forma col-md-3 opsionet">
+		      <select name="subject_classification" id="subjectClass" class="inputet">
+		  		<option value="00" selected="selected">Subject classification</option>
+		  		<option value="Supervised">Supervised</option> 
+		 		<option value="Unsupervised">Unsupervised</option>
+		  		<option value="SemiSupervised">Semi-supervised</option>
+			  </select>
+		    </div>		    
+		  </div>
+
+		  <div class="form-row"> 
+		    <div class="forma col-md-3 col-md-offset-3">
+		      <input type="text" class="inputet" id="physicalLoc" name="physical_location" placeholder="Physical location" >
+		    </div> 
+		    <div class="forma col-md-3">
+		      <input type="number" min="0" max="100" class="inputet" id="documentNo" name="document_number" placeholder="Document number">
+		    </div>
+		  </div>
+
+	
+
+		  <div class="form-row">
+		    <div class="forma col-md-6 col-md-offset-3">
+		      <textarea placeholder="Description for the document being registered..." class="pershkrimi" id="description" name="description"></textarea>
+		    </div>
+		  </div>
+
+
+		  <div class="form-row"> 
+		    <div class="forma col-md-6 col-md-offset-3">
+		      <input type="text" class="inputet" id="author" placeholder="Author of the document" name="author">
+		    </div> 
+		    <div class="forma col-md-3">
+		    </div>
+		  </div>
+
+
+		  <div class="form-row">
+		  	<div class="col-md-6 col-md-offset-3 ngarko">
+		  		<label>Scanned document: &nbsp;</label> 
+		  		<div class="file-upload">
+  					<div class="file-select">
+    					<div class="file-select-button" id="fileName" >CHOOSE FILE</div>
+    					<div class="file-select-name" id="noFile" >No file chosen...</div> 
+    					<input type="file" id="chooseFile" name="scanned" accept=".jpg, .pdf, .jpeg, .png, .gif, .bmp">
+  					</div>
+				</div>	
+		  	</div>
+		  	<div id="fsheh" class="col-md-3"></div>
+		  </div>
+
+		  
+
+		  <div class="form-row">
+			  <div class="forma col-md-3 col-md-offset-3 butonat">
+			  	<button class="btn-submit" type="submit">ADD</button>
+			  </div>
+			  <div class="forma col-md-3 butonat">
+			  	<button class="btn-reset" type="reset">CLEAR</button>
+			  </div>
+		  </div>
+
+		  
+		      	
+		</form>	
+		</div>
+		<p id="success"></p>
+		<div style="text-align: center">
+			<a href = "" style="font-size:20px; padding-bottom: 20px" id="viewDocumentLink">View documents</a>
+		</div>
+    </div>
+	</div>	    
+	<!-- Ketu perfundon html i pare -->
+
+	<!-- Ketu fillon html i dyte -->
+	<div id="viewDocument" style="display: none">
+	<div class="container">
+		<div class="table-responsive-md">
+ 			<table class="table table-hover" id="tabelaDokumentet">
+  			</table>
+		</div>
+		<p id="success1"></p>	
+		<div style="text-align: center">
+			<a href = "/" style="font-size:20px; padding-bottom: 20px" id="addDocumentLink">Add another document</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "" style="font-size:20px; padding-bottom:20px" id="showVisualization">Show visualization</a>
+		</div>	
+    </div>
+    </div>
+    <!-- Ketu perfundon html i dyte -->
+
+    <!--Ketu fillon html i trete -->
+    <div id="vizualizimi" style="display: none; margin-top: 50px">
+    	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+    	<div style="text-align: center">
+			<a href = "" style="font-size:20px; margin-top:30px; padding-bottom: 20px" id="viewDocumentLink1">View documents</a>
+		</div>
+    </div>
+    <!-- Ketu mbaron html i trete -->
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	
+    <script type="text/javascript" src="main.js"></script>
+    
+</body>
+</html>
